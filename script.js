@@ -1,16 +1,14 @@
-// creating array of initial buttons
-
-
+// creating array of initial buttons/search topics
 var btnArr = ["basketball", "spaghetti", "dog", "cat", "france", "eagle", "USA", "hamburger", "owl", "ferrari", "thor", "cricket", "salah"];
 
 
 // this is the function that takes the data from out buttons and grabs the gifs!
 function giphyGrab() {
 
-    // Grabbing and storing the data-animal property value from the button
+    // storing the data value from the button that was clicked upon
     var myGif = $(this).attr("data-name");
 
-    // Constructing a queryURL using the animal name
+    // using that variable^ to construct a giphy URL
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
       myGif + "&api_key=aVqONE3asI6bLg2Y1DHSKfYZwc81GDF3&limit=13";
 
@@ -30,29 +28,28 @@ function giphyGrab() {
         // Looping through each result item
         for (var i = 0; i < results.length; i++) {
 
-          // Creating and storing a div tag
+        //   creating a div tag for each image that will be loaded
           var gifDiv = $("<div>");
 
-          // Creating a paragraph tag with the result item's rating
+        //   adding a p tag so that the grabbed rating will be displayed
           var p = $("<p>").text("Rating: " + results[i].rating);
 
-          // Creating and storing an image tag
+        //  creating an image tag for each image loaded
           var gifImage = $("<img>");
+          
           // Setting the src attribute of the image to a property pulled off the result item
           gifImage.attr("src", results[i].images.fixed_height.url);
 
-          // Appending the paragraph and image tag to the animalDiv
+        //   appending the rating and image into the gifDiv variable
           gifDiv.append(p);
           gifDiv.append(gifImage);
 
-          // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+          // prepending all that lovely information in gifDiv into the div designated to store them
           $(".gifdiv").prepend(gifDiv);
         }
       })
       $("#gif-input").val();
     }
-
-
 
 
 
@@ -84,8 +81,7 @@ function createBtns() {
 
 
 
-
-
+// the click event for the search bar button
     $("#add-gif").on("click", function (event) {
         event.preventDefault();
 
@@ -105,65 +101,11 @@ function createBtns() {
 
     });
 
+    // this click event triggers the giphy query function, all the magic happens
     $(document).on("click", ".gifbtns", giphyGrab);
 
+    
     createBtns();
 
 
-
-
-
-
-
-// // loop through the array and create a button
-// $(document).ready(function () {
-
-//     function buttonRender() {
-//         for (i = 0; i < btnArr.length; i++) {
-
-//             // adding variable, a making it a button
-//             var a = $("<button>");
-
-//             // giving it a class
-//             a.addClass("gifbtns");
-
-//             // giving it a data attribute at the index i
-//             a.attr("data-name", btnArr[i]);
-
-//             // printing the name in the array at the index i
-//             a.text(btnArr[i]);
-
-//             // appending the buttons into their div
-//             $(".btndiv").append(a);
-//         }
-//     };
-
-
-
-    // click event for when "search" is clicked
-    $("#add-gif").on("click", function (event) {
-        event.preventDefault();
-
-        // grabbing the text from the input box
-        var gifSearch = $("#gif-input").val()
-
-        console.log(gifSearch);
-
-        //   pushing the input value into the btn array
-        btnArr.push(gifSearch);
-
-        //  testing to make sure its all going in the right place :) 
-        console.log(btnArr);
-
-        //  run the loop function again to render buttons for the added search terms
-        buttonRender;
-
-    });
-
-
-
-//     });
-
-//     buttonRender;
-// });
-
+    
