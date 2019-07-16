@@ -1,22 +1,18 @@
 // creating array of initial buttons
+
+
 var btnArr = ["basketball", "spaghetti", "dog", "cat", "france", "eagle", "USA", "hamburger", "owl", "ferrari", "thor", "cricket", "salah"];
 
 
-
-
-
-
-
-
-
-function giphyGrab () {
+// this is the function that takes the data from out buttons and grabs the gifs!
+function giphyGrab() {
 
     // Grabbing and storing the data-animal property value from the button
-    var gif = $(this).attr("data-name");
+    var myGif = $(this).attr("data-name");
 
     // Constructing a queryURL using the animal name
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      gif + "&api_key=aVqONE3asI6bLg2Y1DHSKfYZwc81GDF3&limit=13";
+      myGif + "&api_key=aVqONE3asI6bLg2Y1DHSKfYZwc81GDF3&limit=13";
 
     // Performing an AJAX request with the queryURL
     $.ajax({
@@ -50,11 +46,11 @@ function giphyGrab () {
           gifDiv.append(gifImage);
 
           // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-          $("#gifdiv").prepend(gifDiv);
+          $(".gifdiv").prepend(gifDiv);
         }
-      });
+      })
       $("#gif-input").val();
-    };
+    }
 
 
 
@@ -62,9 +58,10 @@ function giphyGrab () {
 
 
 // loop through the array and create a button
-function createBtns () {
+function createBtns() {
 
     $(".btndiv").empty();
+
         for (i = 0; i < btnArr.length; i++) {
 
             // adding variable, a making it a button
@@ -81,9 +78,9 @@ function createBtns () {
 
             // appending the buttons into their div
             $(".btndiv").append(a);
-        };
-        $("#gif-input").val()
-    };
+        }
+        $("#gif-input").val();
+    }
 
 
 
@@ -104,11 +101,13 @@ function createBtns () {
         console.log(btnArr);
 
         //  run the loop function again to render buttons for the added search terms
-        buttonRender;
+        createBtns();
 
     });
 
+    $(document).on("click", ".gifbtns", giphyGrab);
 
+    createBtns();
 
 
 
