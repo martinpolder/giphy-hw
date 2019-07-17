@@ -1,8 +1,76 @@
-#giphylogo {
-    width: 10%;
+body {
+    background-image: url("images/background.png");
+    font-family: 'Anonymous Pro', monospace;
+    
+   
+}
+.bodyhr
+{
+    
+    border-color: white;
+  opacity: .6;
+
+   
+    
+}
+
+.jumbotron {
+    background-color: rgba(134, 0, 243, 0.3);
+    color: white;
+    padding: 2%;
+    
+
+
 }
 
 
+
+.gifdiv {
+    margin-top: 5%;
+    align-self: center;
+    background-color: rgba(134, 0, 243, 0.3);
+    border-radius: 40px;
+   
+   
+   
+}
+
+
+
+#giphylogo {
+    width: 80%;
+    padding: 0;
+    border-radius: 10px;
+}
+
+#thumbsup {
+    border-radius: 10px;
+    margin-left: 15%;
+}
+ 
+h1 {
+   margin-top: 10%;
+    padding: 0;
+    text-align: center;
+}
+
+#search{
+    color: white;
+}
+#instr {
+    color: white;
+    text-align: center;
+   
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-bottom: 0;
+    margin-bottom: 3%;
+
+}
+
+.work{
+    color: white;
+}
 .gifbtns {
     margin-left: 2%;
     margin-top: 2%;
@@ -20,5 +88,7 @@
 
 .gifdiv {
     text-align: center;
+    margin-bottom: 2%;
+    padding-bottom: 2%;
     
 }

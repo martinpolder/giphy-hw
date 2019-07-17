@@ -31,7 +31,7 @@ function giphyGrab() {
       for (var i = 0; i < results.length; i++) {
 
         //   creating a div tag for each image that will be loaded
-        var gifDiv = $("<div>");
+        var gifDiv = $("<div class=work>");
 
        
       

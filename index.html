@@ -6,39 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GIF finder</title>
-   <!-- bootstrap css -->
+    <!-- bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- custom css -->
-        <link rel="stylesheet" type="text/css" href="style.css">
+   
+   <!-- fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet"> 
+        <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
 </head>
 
 <body>
     <div class="container">
 
         <div class="jumbotron">
-           <div class="row">
-           <div class="col-lg">
-            <img id="giphylogo" src="https://assets.materialup.com/uploads/5d38e79f-3463-4f72-8716-5c62b2d9847b/0x0ss-85.jpg" alt="giphy logo">
-        </div>
-        <div class="col-lg">
-            <h1>GIPHY GIF Grabber!</h1>
-            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <img id="giphylogo"
+                        src="https://assets.materialup.com/uploads/5d38e79f-3463-4f72-8716-5c62b2d9847b/0x0ss-85.jpg"
+                        alt="giphy logo">
+                </div>
+                <div class="col-lg-5">
+                    <h1>GIPHY GIF Grabber!</h1>
+                   
+                </div>
 
-            <div class="col-lg">
-            <img id="thumbsup" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" alt="classic internet meme kid giving the thumbs up and nod">
-            </div>
+                <div class="col-lg-4">
+                    <img id="thumbsup" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif"
+                        alt="classic internet meme kid giving the thumbs up and nod">
+                </div>
 
             
-            <div class="row">
-                <div class="col-lg">
-                    <p></p>
-                </div>
+
+
+                
+
             </div>
 
         </div>
-
-        </div>
+        
+                <hr width="55%" class="bodyhr">
+                  
+                <p id="instr">Click the buttons below to generate 13 GIFs! Click the GIFs to play, and click again to pause.
+                    
+                    Add more buttons by entering a subject and hitting Deploy!
+            </p>
+            <hr width="55%" class="bodyhr">
+            
+        
 
         <div class="row">
             <!-- button div -->
@@ -49,30 +65,30 @@
             <!-- gif search div -->
             <div id="formdiv col-lg">
                 <form id="gif-form">
-                    <label for="gif-input">Search for some more GIFs!</label>
+                    <label id="search" for="gif-input">Search for some more GIFs!</label>
                     <input type="text" id="gif-input">
                     <hr>
-                    <input id="add-gif" type="submit" value="Search!">
+                    <input id="add-gif" type="submit" value="Deploy!">
                 </form>
-                    
+
 
             </div>
         </div>
 
         <!-- gif display div -->
-        <div class="row">
-        <div class="gifdiv col-lg-12">
+       
+            <div class="gifdiv col-lg-12">
 
-        </div>
-        </div>
+            </div>
+       
 
     </div>
 
 
-    
+
     <!-- jquery link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <!-- custom js link -->
+    <!-- custom js link -->
     <script src="script.js"></script>
 </body>
 
