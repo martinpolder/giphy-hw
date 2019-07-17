@@ -25,33 +25,45 @@ function giphyGrab() {
       // storing the data from the AJAX request in the results variable
       var results = response.data;
 
+
+
       // Looping through each result item
       for (var i = 0; i < results.length; i++) {
 
         //   creating a div tag for each image that will be loaded
         var gifDiv = $("<div>");
 
+        var defaultAnimatedSrc = results[i].images.fixed_height.url;
+        var staticSrc = results[i].images.fixed_height_still.url;
+        var showImage = $("<img class='img-fluid'>");
+
         //   adding a p tag so that the grabbed rating will be displayed
         var p = $("<p>").text("Rating: " + results[i].rating);
 
-        //  creating an image tag for each image loaded
-        var gifImage = $("<img>");
-
-
+        // //  creating an image tag for each image loaded
+        // var gifImage = $("<img>");
 
 
         // Setting the src attribute of the image to the URL pulled off the result item
         // attempting to set multiple attributes that will help with the pausing and playing
-        // doesnt seem to work
+        // doesnt seem to work lol
+        // gifImage.attr({
+        //   "src": results[i].images.fixed_height.url,
+        //   "data-still": results[i].images.fixed_height.url,
+        //   "data-animate": results[i].images.fixed_height.url,
+        //   "date-state": "still",
+        //   "class": "thegif"
+        // });
 
-        gifImage.attr({
-          "src": results[i].images.fixed_height.url,
-          "data-still": "results[i].images.fixed_height.url",
-          "data-animate": "results[i].images.fixed_height.url",
-          "date-state": "still",
-          "class": "thegif"
-        });
+        var defaultAnimatedSrc = results[i].images.fixed_height.url;
+        var staticSrc = results[i].images.fixed_height_still.url;
+        var gifImage = $("<img class='img-fluid'>");
 
+        gifImage.attr("src", staticSrc);
+        gifImage.addClass("theGif");
+        gifImage.attr("data-state", "still");
+        gifImage.attr("data-still", staticSrc);
+        gifImage.attr("data-animate", defaultAnimatedSrc);
 
 
         //   appending the rating and image into the gifDiv variable
@@ -64,22 +76,6 @@ function giphyGrab() {
     })
   $("#gif-input").val();
 }
-
-// click event to play or pause
-$(".thegif").on("click", function () {
-  // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-  var state = $(this).attr("data-state");
-  // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-  // Then, set the image's data-state to animate
-  // Else set src to the data-still value
-  if (state === "still") {
-    $(this).attr("src", $(this).attr("data-animate"));
-    $(this).attr("data-state", "animate");
-  } else {
-    $(this).attr("src", $(this).attr("data-still"));
-    $(this).attr("data-state", "still");
-  }
-});
 
 
 
@@ -133,10 +129,22 @@ $("#add-gif").on("click", function (event) {
 
 
 
-// this click event triggers the giphy query function, all the magic happens
+// Adding a click event listener to all elements
 $(document).on("click", ".gifbtns", giphyGrab);
+
+$(document).on("click", ".theGif", pausePlayGifs);
+
+//Function accesses "data-state" attribute and depending on status, changes image source to "data-animate" or "data-still"
+function pausePlayGifs() {
+  var state = $(this).attr("data-state");
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+}
 
 
 createBtns();
-
-
