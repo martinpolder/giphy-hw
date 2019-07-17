@@ -4,6 +4,7 @@ var btnArr = ["basketball", "spaghetti", "dog", "cat", "france", "eagle", "USA",
 
 // this is the function that takes the data from out buttons and grabs the gifs!
 function giphyGrab() {
+  $("#gif-input").val("");
 
   // storing the data value from the button that was clicked upon
   var myGif = $(this).attr("data-name");
@@ -75,6 +76,7 @@ function giphyGrab() {
         // prepending all that lovely information in gifDiv into the div designated to store them
         $(".gifdiv").prepend(gifDiv);
       }
+      
     })
   $("#gif-input").val();
 }
@@ -84,7 +86,7 @@ function giphyGrab() {
 
 // loop through the array and create a button
 function createBtns() {
-
+ 
   $(".btndiv").empty();
 
   for (i = 0; i < btnArr.length; i++) {
@@ -104,14 +106,17 @@ function createBtns() {
     // appending the buttons into their div
     $(".btndiv").append(a);
   }
-  $("#gif-input").val();
+  $("#gif-input").val("");
+  
 }
 
 
 
-// the click event for the search bar button
+// the click event for the deploy bar button
 $("#add-gif").on("click", function (event) {
   event.preventDefault();
+
+  
 
   // grabbing the text from the input box
   var gifSearch = $("#gif-input").val()
@@ -124,8 +129,10 @@ $("#add-gif").on("click", function (event) {
   //  testing to make sure its all going in the right place :) 
   console.log(btnArr);
 
+ 
   //  run the loop function again to render buttons for the added search terms
   createBtns();
+
 
 });
 
@@ -134,7 +141,10 @@ $("#add-gif").on("click", function (event) {
 // Adding a click event listener to all elements
 $(document).on("click", ".gifbtns", giphyGrab);
 
+
+
 $(document).on("click", ".theGif", pausePlayGifs);
+
 
 // pause/play function if else statement, grabs the state of the image and changes it depending
 function pausePlayGifs() {
