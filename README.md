@@ -1,4 +1,6 @@
-# giphy-hw
+# GIFs, GIFs, and More GIFs!
+
+https://martinpolder.github.io/giphy-hw/
 
 This project uses AJAX queries to call to the GIPHY API and use Jquery javascript to dynamically incorporate them into the webpage.
 The GIFs are loaded in a pause state by my default setting and can be played upon click.
