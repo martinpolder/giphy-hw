@@ -1,3 +1,8 @@
+#giphylogo {
+    width: 10%;
+}
+
+
 .gifbtns {
     margin-left: 2%;
     margin-top: 2%;
@@ -5,4 +10,15 @@
 
 #gif-form {
     margin-top: 3%;
+}
+
+#add-gif {
+    background-color: green;
+    color: white;
+
+}
+
+.gifdiv {
+    text-align: center;
+    
 }

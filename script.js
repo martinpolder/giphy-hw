@@ -33,9 +33,8 @@ function giphyGrab() {
         //   creating a div tag for each image that will be loaded
         var gifDiv = $("<div>");
 
-        var defaultAnimatedSrc = results[i].images.fixed_height.url;
-        var staticSrc = results[i].images.fixed_height_still.url;
-        var showImage = $("<img class='img-fluid'>");
+       
+      
 
         //   adding a p tag so that the grabbed rating will be displayed
         var p = $("<p>").text("Rating: " + results[i].rating);
@@ -55,10 +54,13 @@ function giphyGrab() {
         //   "class": "thegif"
         // });
 
+         // setting variables for the animated and static source
+
         var defaultAnimatedSrc = results[i].images.fixed_height.url;
         var staticSrc = results[i].images.fixed_height_still.url;
         var gifImage = $("<img class='img-fluid'>");
 
+        // setting all the attributes for the image
         gifImage.attr("src", staticSrc);
         gifImage.addClass("theGif");
         gifImage.attr("data-state", "still");
@@ -91,7 +93,7 @@ function createBtns() {
     var a = $("<button>");
 
     // giving it a class
-    a.addClass("gifbtns");
+    a.addClass("gifbtns btn btn-outline-success");
 
     // giving it a data attribute at the index i
     a.attr("data-name", btnArr[i]);
@@ -134,7 +136,7 @@ $(document).on("click", ".gifbtns", giphyGrab);
 
 $(document).on("click", ".theGif", pausePlayGifs);
 
-//Function accesses "data-state" attribute and depending on status, changes image source to "data-animate" or "data-still"
+// pause/play function if else statement, grabs the state of the image and changes it depending
 function pausePlayGifs() {
   var state = $(this).attr("data-state");
   if (state === "still") {
